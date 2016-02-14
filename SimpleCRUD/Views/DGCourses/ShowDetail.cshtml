@@ -1,0 +1,58 @@
+﻿@model SimpleCRUD.Models.DGCourse
+
+@{
+    ViewBag.Title = "ShowDetail";
+}
+
+<h2>ShowDetail</h2>
+
+<div>
+    <h4>DGCourse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Open)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Open)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "UpdateDGCourses", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "ShowTable")
+</p>

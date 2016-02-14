@@ -17,5 +17,15 @@ namespace SimpleCRUD
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            DAL.Data.InitializeDGCourses();
+        }
+
+        protected void Session_End(object sender, EventArgs e)
+        {
+            // perform any session housekeeping here
+        }
     }
 }

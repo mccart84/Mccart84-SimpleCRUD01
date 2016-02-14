@@ -1,0 +1,43 @@
+﻿@model List<SimpleCRUD.Models.DGCourse>
+
+@{
+    ViewBag.Title = "Show Table";
+}
+
+<h2>List of Courses</h2>
+
+<br />
+
+<a href="/DGCourses/CreateDGCourses">Add a New Course</a>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td>@item.Address</td>
+            <td>@item.City</td>
+            <td>@item.State</td>
+            <td>@item.Zip</td>
+            <td>@(item.Open?"Open":"Closed")</td>
+            <td>
+                <a href="/DGCourses/ShowDetail?id=@item.ID">View</a>&nbsp;&nbsp;
+                <a href="/DGCourses/ShowDetail?id=@item.ID">Edit</a>&nbsp;&nbsp;
+                <a href="/DGCourses/ShowDetail?id=@item.ID">Delete</a>&nbsp;&nbsp;
+            </td>
+        </tr>
+    }
+</table>
+
