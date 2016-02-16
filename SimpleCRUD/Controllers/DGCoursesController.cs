@@ -93,7 +93,7 @@ namespace SimpleCRUD.Controllers
 
             }
 
-            return Redirect("/DGCourse/ShowTable");
+            return Redirect("/DGCourses/ShowTable");
         }
 
         public ActionResult UpdateDGCourses(int id)
@@ -135,7 +135,7 @@ namespace SimpleCRUD.Controllers
         {
             DAL.Data.InitializeDGCourses();
 
-            return Redirect("/DGCourse/ShowTable");
+            return Redirect("/DGCourses/ShowTable");
         }
 
         private int GetNextID()
