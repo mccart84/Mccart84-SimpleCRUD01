@@ -4,9 +4,9 @@
     ViewBag.Title = "DeleteDGCourse";
 }
 
-<h2>Delete DG Course</h2>
+<h2>Delete Disc Golf Course</h2>
 
-<p>You are about to delete the following disc golf course. Click <strong>Delete</strong> or <strong>Cancel</strong>.</p>
+<p>You are about to delete the following course. Click <strong>Delete</strong> or <strong>Cancel</strong>.</p>
 <table class="table">
     <tr>
         <th>
@@ -49,7 +49,7 @@
         </th>
     </tr>
 </table>
-<form action="/DGCourses/DeleteDGCourse" method="post">
+<form action="/DGCourse/DeleteDGCourse" method="post">
     <input type="hidden" name="id" value="@Model.ID" />
     <input type="submit" name="operation" value="Delete" />
     <input type="submit" name="operation" value="Cancel" />

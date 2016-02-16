@@ -33,6 +33,69 @@ namespace SimpleCRUD.Controllers
             return View(dgCourse);
         }
 
+        public ActionResult DeleteDGCourse(int id)
+        {
+            List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourses"];
+
+            DGCourse courseToDelete = null;
+
+            foreach (DGCourse dgCourse in dgCourses)
+            {
+                if (dgCourse.ID == id)
+                    courseToDelete = dgCourse;
+            }
+
+            return View(courseToDelete);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteDGCourse(FormCollection form)
+        {
+            if (form["operation"] == "Delete")
+            {
+                List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourses"];
+
+                int index = dgCourses.FindIndex(a => a.ID == Convert.ToInt32(form["ID"]));
+
+                dgCourses.RemoveAt(index);
+
+                Session["DGCourses"] = dgCourses;
+            }
+
+            return Redirect("/DGCourses/ShowTable");
+        }
+
+        public ActionResult CreateDGCourse()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateDGCourse(FormCollection form)
+        {
+            if (form["operation"] == "Add")
+            {
+                List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourses"];
+
+                DGCourse newDGCourse = new DGCourse()
+                {
+                    ID = GetNextID(),
+                    Name = form["name"],
+                    Address = form["address"],
+                    City = form["city"],
+                    State = (StateEnum.StateAbrv)Enum.Parse(typeof(StateEnum.StateAbrv), form["state"]),
+                    Zip = form["zip"]
+                };
+
+                dgCourses.Add(newDGCourse);
+
+                Session["DGCourses"] = dgCourses;
+
+            }
+
+            return Redirect("/DGCourse/ShowTable");
+        }
+
         public ActionResult UpdateDGCourses(int id)
         {
             List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourses"];
@@ -68,36 +131,18 @@ namespace SimpleCRUD.Controllers
             return Redirect("DGCourses/ShowTable");
         }
 
-        public ActionResult DeleteDGCourse(int id)
+        public ActionResult ReloadData()
+        {
+            DAL.Data.InitializeDGCourses();
+
+            return Redirect("/DGCourse/ShowTable");
+        }
+
+        private int GetNextID()
         {
             List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourses"];
 
-            DGCourse courseToDelete = null;
-
-            foreach (DGCourse dgCourse in dgCourses)
-            {
-                if (dgCourse.ID == id)
-                    courseToDelete = dgCourse;
-            }
-
-            return View(courseToDelete);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteDGCourse(FormCollection form)
-        {
-            if (form["operation"] == "Delete")
-            {
-                List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourses"];
-
-                int index = dgCourses.FindIndex(a => a.ID == Convert.ToInt32(form["ID"]));
-
-                dgCourses.RemoveAt(index);
-
-                Session["DGCourses"] = dgCourses;
-            }
-
-            return Redirect("/DGCourses/Showtable");
+            return dgCourses.Max(x => x.ID) + 1;
         }
     }
 }

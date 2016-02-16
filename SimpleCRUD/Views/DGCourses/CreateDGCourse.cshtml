@@ -1,19 +1,19 @@
 ﻿@model SimpleCRUD.Models.DGCourse
 
 @{
-    ViewBag.Title = "UpdateDGCourses";
+    ViewBag.Title = "CreateDGCourse";
 }
 
-<h2>Update Disc Golf Courses</h2>
-
-<form action="/DGCourses/UpdateDGCourses" method="post">
+<h2>Add New Course</h2>
+<br />
+<form action="/DGCourse/CreateDGCourse" method="post">
     <table class="table">
         <tr>
             <th>
                 Name
             </th>
             <th>
-                <input type="text" name="name" value="@Model.Name" />
+                <input type="text" name="name" value="" />
             </th>
         </tr>
         <tr>
@@ -21,7 +21,7 @@
                 Address
             </th>
             <th>
-                <input type="text" name="address" value="@Model.Address" />
+                <input type="text" name="address" value="" />
             </th>
         </tr>
         <tr>
@@ -29,7 +29,7 @@
                 City
             </th>
             <th>
-                <input type="text" name="city" value="@Model.City" />
+                <input type="text" name="city" value="" />
             </th>
         </tr>
         <tr>
@@ -38,7 +38,6 @@
             </th>
             <th>
                 <select name="state">
-                    <option value="@Model.State">@Model.State</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -98,19 +97,10 @@
                 Zip
             </th>
             <th>
-                <input type="text" name="zip" value="@Model.Zip" />
-            </th>
-        </tr>
-        <tr>
-            <th>
-                Open?
-            </th>
-            <th>
-                <input type="checkbox" name="open" value="@Model.Open" />
+                <input type="text" name="zip" value="" />
             </th>
         </tr>
     </table>
-    <input type="hidden" name="ID" value="@Model.ID" />
-    <input type="submit" name="operation" value="Edit" />
+    <input type="submit" name="operation" value="Add" />
     <input type="submit" name="operation" value="Cancel" />
 </form>

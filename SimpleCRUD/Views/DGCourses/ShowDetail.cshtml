@@ -4,55 +4,55 @@
     ViewBag.Title = "ShowDetail";
 }
 
-<h2>ShowDetail</h2>
+<h2>Show Detail</h2>
 
-<div>
-    <h4>DGCourse</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Zip)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Zip)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Open)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Open)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "UpdateDGCourses", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "ShowTable")
-</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            @Html.Display("ID")
+        </th>
+    </tr>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            @Html.Display("Name")
+        </th>
+    </tr>
+    <tr>
+        <th>
+            Address
+        </th>
+        <th>
+            @Html.Display("Address")
+        </th>
+    </tr>
+    <tr>
+        <th>
+            City
+        </th>
+        <th>
+            @Html.Display("City")
+        </th>
+    </tr>
+    <tr>
+        <th>
+            State
+        </th>
+        <th>
+            @Html.Display("State".ToString())
+        </th>
+    </tr>
+    <tr>
+        <th>
+            Zip
+        </th>
+        <th>
+            @Html.Display("Zip")
+        </th>
+    </tr>
+</table>
